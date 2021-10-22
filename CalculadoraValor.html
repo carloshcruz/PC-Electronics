@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,134 +8,218 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Calculadora Datos</title>
+    <title>Calculadora Valor</title>
   </head>
   <body>
-    <h1>Calculadora valor de compra de producto</h1>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff5733;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PC Electronics</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Administrador</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Inventario
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="Formulario_Producto.html">Ingresar Producto</a></li>
+                <li><a class="dropdown-item" href="ActualizarProducto.html">Actualizar Producto</a></li>
+                <li><a class="dropdown-item" href="Eliminar_Producto.html">Eliminar Producto</a></li>
+                <li><a class="dropdown-item" href="Consulta_Productos.html">Consultar Producto</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Utilidades
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="CalculadoraDatos.html">Calculadora de Datos</a></li>
+                <li><a class="dropdown-item" href="CalculadoraValor.html">Calculadora de Valor</a></li>
+                 <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <h1><center>Calculadora de Valor</h1></center>
     <hr>
     <br>
-<script>
-    
-  <!--
-function doCalc(flagA)
-{
-   Rels = new Array(1,8,8192,8388608,8589934592,8796093022208);
-   for (i=0;i<Rels.length;i++)
-   {
-        if (i==flagA)
-        {
-            givenValue=document.getElementById(flagA).value.replace(",",".");
-            newVal=eval(givenValue*Rels[i])
-            document.getElementById("0").value=newVal;
+
+<style>
+  input[type="button"]:hover{
+    background-color:slategray;
+    cursor: pointer;
+  }
+  input[type="button"].arit{
+    background-color:gray;
+  }
+  input[type="button"].igual{
+    background-color: green;
+  }
+  input[type="button"].clear{
+    background-color:orange;
+  }
+  form{
+    background-color:white;
+  }
+  input[type="text"]{
+    background-color:#a09c72
+;
+    border:0px;
+    width:253px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    text-align: right;
+    pointer-events: none;
+  }
+  input[name="txtcaja1"]{
+    height: 25px;
+    font-size: 18px;
+  }
+  input[name="txtcaja2"]{
+    margin-bottom: 5px;
+    font-size: 26px;
+  }
+  input[type="button"]{
+    font-size: 18px;
+    font-weight:lighter;
+    font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    width:60px;border:0px;
+    height: 60px;
+    color: white;
+    background-color:black;
+    margin-bottom: 5px;
         }
-   }
-   for (i=1;i<Rels.length;i++)
-   {
-        newVal=eval(document.getElementById("0").value/Rels[i]);
-        neg=0;
-        if (newVal < 0)
-        {
-            newVal*=-1;
-            neg=1;
-        }
-        j=0;
-        while (newVal<1 && newVal>0)
-        {
-               j++;
-               newVal*=10;
-        }
-        newVal*=100000;
-        newVal=Math.round(newVal);
-        newVal/=100000;
-        newVal/=Math.pow(10,j);
-        newVal="a"+newVal;
-        cache=0;
-        if (newVal.indexOf("e") != -1)
-        {
-            cache=newVal.substr(newVal.indexOf("e"),5);
-            newVal=newVal.substring(0,newVal.indexOf("e"));
-        }
-        dig=new Array;
-        for (j=1;j<5;j++)
-            dig[j]=newVal.substr(newVal.length-j-1,1);
-        if (dig[1] == 9 && dig[2] == 9 && dig[3] == 9 && dig[4] == 9)
-           {
-                rest=newVal.substring(newVal.indexOf("."),100).length-1;
-                newVal=newVal.substring(1,newVal.length-1);
-                newVal="a"+eval(eval(newVal)+Math.pow(10,-rest+2));
+
+</style>
+
+<center><div>
+<form name="f1">
+<input type="text" name="txtcaja1">
+<br>
+<input type="text" name="txtcaja2" value="0">
+<br>
+<input type="button" class="arit" onClick="arit('%')" value="%">
+<input type="button" onClick="raiz()" value="√">
+<input type="button" onClick="escribir('7')" value="x²">
+<input type="button" onClick="escribir('7')" value="¹/×">
+<br>
+<input type="button" class="clear" onClick="document.f1.txtcaja2.value='0'" value="CE">
+<input type="button" class="clear" onClick="document.f1.reset(); blocdel = false;" value="C">
+<input type="button" class="clear" onClick="deletecarac()" value="◄">
+ 
+<input type="button" class="arit" onClick="arit('/')" value="÷">
+<br>
+<input type="button" onclick="escribir(this.value)" value="7">
+<input type="button" onclick="escribir(this.value)" value="8">
+<input type="button" onclick="escribir(this.value)" value="9">
+<input type="button" class="arit" onClick="arit('*')" value="×">
+<br>
+<input type="button" onclick="escribir(this.value)" value="4">
+<input type="button" onclick="escribir(this.value)" value="5">
+<input type="button" onclick="escribir(this.value)" value="6">
+<input type="button" class="arit" onClick="arit('-')" value="-">
+<br>
+<input type="button" onclick="escribir(this.value)" value="1">
+<input type="button" onclick="escribir(this.value)" value="2">
+<input type="button" onclick="escribir(this.value)" value="3">
+<input type="button" class="arit" onClick="arit('+')" value="+">
+<br>
+<input type="button" class="arit" onClick="masmenos()" value="±">
+<input type="button" onclick="escribir(this.value)" value="0">
+<input type="button" onClick="escribir('.')" value=".">
+<input type="button" class="igual" onClick="calcular()" value="=">
+<br>
+</form>
+</div>
+</center>
+<script type="text/javascript">
+  var borrar = false;
+  function deletecarac(){
+    var caja2 = document.f1.txtcaja2.value;
+            if (caja2 == "" || caja2 == "0" || caja2.length == 1 && blocdel!=true){
+              document.f1.txtcaja2.value = "0";
             }
-       for (j=1;j<5;j++)
-             dig[j]=newVal.substr(newVal.length-j-1,1);
-       if (dig[1] == 0 && dig[2] == 0 && dig[3] == 0 && dig[4] == 0)
-             {
-                 check=0;
-                 for (j=0;j<newVal.length-5;j++)
-                 {
-                      if (newVal.substr(j,1)!=0)
-                          check++;
-                 }
-                 if (check>2)
-                     newVal=newVal.substring(0,newVal.length-1);
-             }
-        if (cache)
-            newVal=newVal+cache;
-        newVal=newVal.substring(1,newVal.length);
-        if (neg)
-            newVal*=-1;
-        document.getElementById(i).value=eval(newVal);
-   }
-}
-// end Conversion: bits and bytes -->
+            else if(blocdel!=true){
+              var res = caja2.substring(0,caja2.length-1);
+              document.f1.txtcaja2.value = res;
+            }
+  }
+   function escribir(n){
+    var caja2 = document.f1.txtcaja2.value;
+    if (borrar) {
+      //alert("se borro");
+      document.f1.txtcaja2.value="";
+      borrar = false;
+      document.f1.txtcaja2.value = n;
+    }
+    else if (caja2 == "0" && n != "."){
+      cajao = caja2.replace("0", "")
+      document.f1.txtcaja2.value = cajao + n;
+    }
+    else{
+      document.f1.txtcaja2.value = caja2 + n;
+    }
+  }
+  function raiz(){
+    var caja1 = document.f1.txtcaja1.value;
+    var caja2 = document.f1.txtcaja2.value;
+    document.f1.txtcaja1.value = "Math.sqrt("+ caja2 + caja1 +")";
+    document.f1.txtcaja2.value = "";
+  }
+  function arit(o){
+    var caja1 = document.f1.txtcaja1.value;
+    var caja2 = document.f1.txtcaja2.value;
+    var unum = caja1.substring(caja1.length-1);
+    calcular()
+    if (unum == "+" || unum == "-" || unum=="*" || unum=="/") {
+      unum = unum.replace(unum,o);
+      var res = caja1.substring(0,caja1.length-1);
+      document.f1.txtcaja1.value = res+unum;
+    }
+    if (caja1 == "" && caja2 != ""){
+      document.f1.txtcaja1.value = caja2 + o;
+    }
+    else{
+      document.f1.txtcaja1.value = caja1 + caja2 + o;
+    }
+    borrar = true;
+  }
+  function calcular(){
+    var caja1 = document.f1.txtcaja1.value;
+    var caja2 = document.f1.txtcaja2.value;
+    document.f1.txtcaja2.value = eval(caja1 + caja2);
+    document.f1.txtcaja1.value = "";
+    borrar = true;
+    blocdel = true;
+  }
+  function masmenos(){
+    var caja2 = document.f1.txtcaja2.value;
+    if (caja2 > 0){
+      document.f1.txtcaja2.value = "(-" + caja2 + ")";
+    }
+    else{
+      cajaplus = caja2.replace(/[-|(|)]/g, "");
+      document.f1.txtcaja2.value = cajaplus;
+    }
+  }
 </script>
 
-<p align="center"><font size="4"><b>Conversion: entre Bits y Bytes</b></font><br>
-    <font size="3"><b>1 byte es igual a 8 bits</b></font>
-    </p>
-    
-    <br>
-    <form name="flagA">
-        <table border="0" align="center" cellpadding="1" cellspacing="0"> 
-          <tbody><tr>
-            <td align="right"><font size="2">Valor de Compra ($):</font></td>
-            <td>
-                <input id="0" size="20" onchange="doCalc(0)" value="" style="background-color: #FFFFFF" spellcheck="false" data-ms-editor="true"> Ejemplo: 4194304000
-            </td>
-          </tr>
-          <tr>
-            <td align="right"><font size="2"> Porcentaje Utilidad o Ganancia (%):</font></td>
-            <td>
-                <input id="1" size="20" onchange="doCalc(1)" value="" style="background-color: #FFFFFF" spellcheck="false" data-ms-editor="true"> Ejemplo: 524288000
-            </td>
-          </tr>
-          <tr>
-            <td align="right"><font size="2">Porcentaje IVA (%):</font></td>
-            <td>
-                <input id="2" size="20" onchange="doCalc(2)" value="" style="background-color: #FFFFFF" spellcheck="false" data-ms-editor="true"> Ejemplo: 512000
-            </td>
-          </tr>
-          <tr>
-            <td align="right"><font size="2">Valor de Venta ($):</font></td>
-            <td>
-                <input id="3" size="20" onchange="doCalc(3)" value="" style="background-color: #FFFFFF" spellcheck="false" data-ms-editor="true"> Ejemplo: 500
-            </td>
-          </tr>
-          <tr>
-            <td align="right"><font size="2">Ganancia ($):</font></td>
-            <td>
-                <input id="4" size="20" onchange="doCalc(4)" value="" style="background-color: #FFFFFF" spellcheck="false" data-ms-editor="true">
-            </td>
-          </tr>
-          <tr>
-            <td align="right" colspan="2" valign="center">
-      <hr>
-      Ingrese un solo valor en cualquier casilla y presione <b>"Calcular"</b> <input type="button" class="btn btn-success" value="Calcular"> <input type="reset" class="btn btn-danger" value="Borrar"><br>
-      
-           </td>
-          </tr>
-        </tbody></table>
-      </form>
-
-    <!-- Optional JavaScript; choose one of the two! -->
+<!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

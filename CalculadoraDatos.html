@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,7 +11,50 @@
     <title>Calculadora Datos</title>
   </head>
   <body>
-    <h1>Calculadora de equivalencia entre tamaño de datos</h1>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff5733;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PC Electronics</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Administrador</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Inventario
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="Formulario_Producto.html">Ingresar Producto</a></li>
+                <li><a class="dropdown-item" href="ActualizarProducto.html">Actualizar Producto</a></li>
+                <li><a class="dropdown-item" href="Eliminar_Producto.html">Eliminar Producto</a></li>
+                <li><a class="dropdown-item" href="Consulta_Productos.html">Consultar Producto</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Utilidades
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="CalculadoraDatos.html">Calculadora de Datos</a></li>
+                <li><a class="dropdown-item" href="CalculadoraValor.html">Calculadora de Valor</a></li>
+                 <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <h1><center>Calculadora de Equivalencia entre Tamaño de Datos</h1></center>
     <hr>
     <br>
 <script>
@@ -132,7 +175,7 @@ function doCalc(flagA)
           <tr>
             <td align="right" colspan="2" valign="center">
       <hr>
-      Ingrese un solo valor en cualquier casilla y presione <b>"Calcular"</b> <input type="button" class="btn btn-success" value="Calcular"> <input type="reset" class="btn btn-danger" value="Borrar"><br>
+      Ingrese un solo valor en cualquier casilla y presione <b>"Calcular"</b> <input type="button" class="btn btn-primary btn-lg" value="Calcular"> <input type="reset" class="btn btn-danger  btn-lg" value="Borrar"><br>
       
            </td>
           </tr>
